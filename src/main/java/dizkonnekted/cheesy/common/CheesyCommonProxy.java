@@ -29,7 +29,7 @@ public class CheesyCommonProxy { //implements IGuiHandler { //THIS IS IMPORTANT,
 
  public void registerBlocks(){ //For registering Blocks
  //Cheese
- GameRegistry.registerBlock(Cheesy.Cheese, "Cheese"); //Needed for all blocks
+ //GameRegistry.registerBlock(Cheesy.Cheese, "Cheese"); //Needed for all blocks
  LanguageRegistry.addName(Cheesy.Cheese, "Cheese"); //In-game name
  }
 

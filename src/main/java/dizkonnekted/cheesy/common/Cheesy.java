@@ -23,7 +23,7 @@ clientPacketHandlerSpec = @SidedPacketHandler(channels = {"Cheesy"}, packetHandl
 serverPacketHandlerSpec = @SidedPacketHandler(channels = {"Cheesy"}, packetHandler = CheesyServerPacketHandler.class)) //For serverside packet handling
 
 //MOD BASICS
-@Mod(modid="Cheesy",name="Cheesy",version="Release")
+@Mod(modid="Cheesy",name="Cheesy",version="Alpha")
 
 
 public class Cheesy {
