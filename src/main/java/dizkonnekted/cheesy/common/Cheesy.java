@@ -1,6 +1,6 @@
 package dizkonnekted.cheesy.common;
 
-//import net.minecraft.block.Block;
+import net.minecraft.block.Block;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -13,7 +13,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.SidedProxy;
 import dizkonnekted.cheesy.common.CheesyCommonProxy;
-//import dizkonnekted.cheesy.common.blocks.Cheese;
+import dizkonnekted.cheesy.common.blocks.Cheese;
 import dizkonnekted.cheesy.common.handlers.CheesyServerPacketHandler;
 import dizkonnekted.cheesy.common.handlers.CheesyClientPacketHandler;
 
@@ -29,20 +29,21 @@ serverPacketHandlerSpec = @SidedPacketHandler(channels = {"Cheesy"}, packetHandl
 public class Cheesy {
 
  @Instance("Cheesy") //The instance, this is very important later on
- public static Cheesy instance ;
+ public static Cheesy instance = new Cheesy();
 
- @SidedProxy(clientSide = "dizkonnekted.cheesy.client.CheesyClientProxy", serverSide = "dizkonnekted.cheesy.common.ReinforcedArmorsCommonProxy") //Tells Forge the location of your proxies
+ @SidedProxy(clientSide = "dizkonnekted.cheesy.client.CheesyClientProxy", serverSide = "dizkonnekted.cheesy.common.CheesyCommonProxy") //Tells Forge the location of your proxies
  public static CheesyCommonProxy proxy;
 
  //BLOCKS
-// public static BlockCheese;
+ public static Block Cheese;
  
  @EventHandler
  public void PreInit(FMLPreInitializationEvent e){
 
  //BLOCKS
-// BlockCheese = new BlockCheese(3000).setUnlocalizedName("Cheese"); //3000 is its ID
-  
+ Cheese = new Cheese(3000).setUnlocalizedName("Cheese"); //3000 is its ID
+ GameRegistry.registerBlock(Cheese, "Cheese");
+ 
  }
 
  @EventHandler
@@ -52,7 +53,7 @@ public class Cheesy {
  proxy.registerBlocks(); //Calls the registerBlocks method -- This wasn't here before, so don't skip over this!
   
  //MULTIPLAYER ABILITY
-// NetworkRegistry.instance().registerGuiHandler(this, proxy); //Registers the class that deals with GUI data
+ //NetworkRegistry.instance().registerGuiHandler(this, proxy); //Registers the class that deals with GUI data
 
  } 
 }
